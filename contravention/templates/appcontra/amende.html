@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="card-title text-white">+ Nouvelle Amende</div>
+            </div>
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Numero</label>
+                    <input 
+                        type="text" 
+                        class="form-control form-control-lg bg-light" 
+                        placeholder="Enter numero">
+                </div>
+                <div class="form-group">
+                    <label>Infraction</label>
+                    <input 
+                        type="email" 
+                        class="form-control form-control-lg bg-light" 
+                        placeholder="Enter Infraction">
+                </div>
+                <div class="form-group">
+                    <label>Montant</label>
+                    <input 
+                        type="text" 
+                        class="form-control form-control-lg bg-light" 
+                        placeholder="Enter Montant">
+                </div>
+                <div class="form-group">
+                    <label>Date emission</label>
+                    <input 
+                        type="date" 
+                        class="form-control form-control-lg bg-light" 
+                        placeholder="Enter date emission">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <input 
+                        type="text" 
+                        class="form-control form-control-lg bg-light" 
+                        placeholder="Status">
+                </div>
+            </div>
+            <div class="card-action">
+                <a href="#"><button class="btn btn-success btn-lg">
+                    Valider
+                </button></a>
+                <a href="{% url 'amendes' %}"><button class="btn btn-danger btn-lg">
+                    Annuler
+                </button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

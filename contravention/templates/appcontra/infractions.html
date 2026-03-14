@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div class="card-title text-dark" _msttexthash="224159" _msthash="96">
+            <h3>Liste des Infractions</h3><a href="{% url 'infraction' %}">
+            <button class="btn btn-primary btn-round ms-auto d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#addRowModal">
+                <i class="fa fa-plus"></i>
+                <font _mstmutation="1" _msttexthash="290550" _msthash="483">
+                Ajouter une ligne
+                </font>
+            </button></a>
+        </div>   
+    </div>
+    <div class="card-body">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col" _msttexthash="133978" _msthash="98">assujettis</th>
+                    <th scope="col" _msttexthash="94367" _msthash="99">detail</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">datein</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Lieu</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in infractions %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.assujettis }}</td>
+                    <td>{{ i.detail }}</td>
+                    <td>{{ i.datein }}</td>
+                    <td>{{ i.lieu }}</td>
+                    <td>
+                        <a href="{% url 'minfraction' i.id %}">
+                             <i class="fas fa-pen-square"></i>
+                         </a>
+                         <a href="{% url 'sinfraction' i.id %}">
+                             <i class="fas fa-trash-alt"></i>
+                         </a>
+                      </td>
+                 </tr>
+                 {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

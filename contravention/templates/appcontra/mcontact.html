@@ -1,0 +1,43 @@
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if c %}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h3>Modification du contact : {{ c.id }}</h3>
+            <form class="forms-sample" action="{% url 'emcontact' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" class="form-control" id="id" name="matricule" value="{{ c.id }}">
+
+                <div class="form-group">
+                    <label for="assujettis">Assujettis</label>
+                    <select class="form-control" id="assujettis" name="assujettis">
+                        <option value="{{ c.assujettis }}">Selectionner un Assujettis</option>
+                        {% for ass in assujettis %}
+                        <option value="{{ ass.id }}" {% if c.assujettis == ass %} selected {% endif %} >{{ ass.noms }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="text" class="form-control" id="telephone" name="telephone" value="{{ c.telephone }}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ c.email }}">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" class="form-control" id="message" name="message" value="{{ c.message }}">
+                </div>
+
+                <button type="submit" class="btn btn-info mr-2">Valider</button>
+                <button type="reset" class="btn btn-light"><a href="{% url 'contacts' %}">Annuler</a></button>
+            </form>
+        </div>
+    </div>
+</div>  
+{% endif %}
+{% endblock content %} {% endcomment %}

@@ -1,0 +1,43 @@
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if i %}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h3>Modification d'une infraction : {{ i.id }}</h3>
+            <form class="forms-sample" action="{% url 'eminfraction' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" class="form-control" id="id" name="matricule" value="{{ i.id }}">
+
+                <div class="form-group">
+                    <label for="assujettis">Assujettis</label>
+                    <select class="form-control" id="assujettis" name="assujettis">
+                        <option value="{{ i.assujettis }}">Selectionner une infraction</option>
+                        {% for ass in assujettis %}
+                        <option value="{{ ass.id }}" {% if i.assujettis == ass %} selected {% endif %} >{{ ass.noms }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="detail">Details</label>
+                    <input type="text" class="form-control" id="detail" name="detail" value="{{ i.detail }}">
+                </div>
+                <div class="form-group">
+                    <label for="datein">Date infraction</label>
+                    <input type="date" class="form-control" id="datein" name="datein" value="{{ i.date|default_if_none:''|date:'Y-m-d' }}">
+                </div>
+                <div class="form-group">
+                    <label for="lieu">Lieu</label>
+                    <input type="text" class="form-control" id="lieu" name="lieu" value="{{ i.lieu }}">
+                </div>
+
+                <button type="submit" class="btn btn-info mr-2">Valider</button>
+                <button type="reset" class="btn btn-light"><a href="{% url 'infractions' %}">Annuler</a></button>
+            </form>
+        </div>
+    </div>
+</div>  
+{% endif %}
+{% endblock content %} {% endcomment %}

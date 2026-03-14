@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <div class="card-title text-dark" _msttexthash="224159" _msthash="96">
+            <h3>Liste des Assujettis</h3><a href="{% url 'assujetti' %}">
+            <button class="btn btn-primary btn-round ms-auto d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#addRowModal">
+                <i class="fa fa-plus"></i>
+                <font _mstmutation="1" _msttexthash="290550" _msthash="483">
+                Ajouter une ligne
+                </font>
+            </button></a>
+        </div>   
+    </div>
+    <div class="card-body">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Noms</th>
+                    <th scope="col" _msttexthash="133978" _msthash="98">Sexe</th>
+                    <th scope="col" _msttexthash="94367" _msthash="99">Date</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Adresse</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Telephone</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for ass in assujettis %}
+                    <tr>
+                        <td>{{ ass.numero }}</td>
+                        <td>{{ ass.noms }}</td>
+                        <td>{{ ass.sexe }}</td>
+                        <td>{{ ass.date }}</td>
+                        <td>{{ ass.adresse }}</td>
+                        <td>{{ ass.telephone }}</td>
+                        <td>
+                            <a href="{% url 'massujettis' ass.numero %}">
+                                <i class="fas fa-pen-square"></i>
+                            </a>
+                            <a href="{% url 'sassujettis' ass.numero %}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+                
+{% endblock content %}
