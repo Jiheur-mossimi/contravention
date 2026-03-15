@@ -8,46 +8,53 @@
             <div class="card-header bg-primary">
                 <div class="card-title text-white"> + Nouveau Paiement</div>
             </div>
-            {% csrf_token %}
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Numero</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter numero">
+            <form class="forms-sample" method="POST" action="{% url 'epaiement' %}">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Numero</label>
+                        <input 
+                            type="text"
+                            name="numero"
+                            class="form-control form-control-lg bg-light" 
+                            placeholder="Enter numero" id="numero">
+                    </div>
+                    <div class="form-group">
+                        <label>Amende</label>
+                        <input 
+                            type="text"
+                            name="amende"
+                            class="form-control form-control-lg bg-light" 
+                            placeholder="Enter Amende" id="amende">
+                    </div>
+                    <div class="form-group">
+                        <label for="datep">Date paiement</label>
+                        <input 
+                            type="date"
+                            name="datep"
+                            id="datep"
+                            class="form-control form-control-lg bg-light">
+                    </div>
+                    <div class="form-group">
+                        <label>Mode</label>
+                        <input 
+                            type="text"
+                            name="mode"
+                            class="form-control form-control-lg bg-light" 
+                            placeholder="Enter mode" id="mode">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Amende</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter Amende">
+                <div class="card-action">
+                    <button type="submit" class="btn btn-success btn-lg">
+                        Valider
+                    </button>
+                    <a href="{% url 'paiements' %}" class="btn btn-danger btn-lg">
+                        Annuler
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label for="datep">Date paiement</label>
-                    <input 
-                        type="date" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter datep">
-                </div>
-                <div class="form-group">
-                    <label>Mode</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter mode">
-                </div>
-            </div>
-            <div class="card-action">
-                <a href="#"><button class="btn btn-success btn-lg">
-                    Valider
-                </button></a>
-                <a href="{% url 'paiements' %}"><button class="btn btn-danger btn-lg">
-                    Annuler
-                </button></a>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+
 {% endblock content %}

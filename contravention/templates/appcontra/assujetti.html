@@ -8,60 +8,63 @@
             <div class="card-header bg-primary">
                 <div class="card-title text-white">+ Nouvelle Assujetti</div>
             </div>
-            {% csrf_token %}
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Numero</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter numero">
+            <form class="forms-sample" method="POST" action="{% url 'eassujettis' %}">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Numero</label>
+                        <input 
+                            type="text" 
+                            name="numero"
+                            class="form-control form-control-lg bg-light" id="numero" placeholder="Numero">
+                    </div>
+                    <div class="form-group">
+                        <label>Noms</label>
+                        <input 
+                            type="text" 
+                            name="noms"
+                            class="form-control form-control-lg bg-light" id="noms" placeholder="Noms">
+                    </div>
+                    <div class="form-group">
+                        <label>Sexe</label>
+                        <input 
+                            type="text" 
+                            name="sexe"
+                            class="form-control form-control-lg bg-light" id="sexe" placeholder="Sexe">
+                    </div>
+                    <div class="form-group">
+                        <label>Date naissance</label>
+                        <input 
+                            type="date" 
+                            name="date"
+                            class="form-control form-control-lg bg-light" id="date" placeholder="Date naissance">
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input 
+                            type="text" 
+                            name="adresse"
+                            class="form-control form-control-lg bg-light" id="adresse" placeholder="Adresse">
+                    </div>
+                    <div class="form-group">
+                        <label>Telephone</label>
+                        <input 
+                            type="text" 
+                            name="telephone"
+                            class="form-control form-control-lg bg-light" id="telephone" placeholder="Telephone">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Noms</label>
-                    <input 
-                        type="email" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter Infraction">
+                <div class="card-action">
+                    <button type="submit" class="btn btn-success btn-lg">
+                        Valider
+                    </button>
+                    <a href="{% url 'assujettis' %}" class="btn btn-danger btn-lg">
+                        Annuler
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label>Sexe</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter Montant">
-                </div>
-                <div class="form-group">
-                    <label>Date naissance</label>
-                    <input 
-                        type="date" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Enter date naissance">
-                </div>
-                <div class="form-group">
-                    <label>Adresse</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Adresse">
-                </div>
-                <div class="form-group">
-                    <label>Telephone</label>
-                    <input 
-                        type="text" 
-                        class="form-control form-control-lg bg-light" 
-                        placeholder="Telephone">
-                </div>
-            </div>
-            <div class="card-action">
-                <a href="#"><button class="btn btn-success btn-lg">
-                    Valider
-                </button></a>
-                <a href="{% url 'assujettis' %}"><button class="btn btn-danger btn-lg">
-                    Annuler
-                </button></a>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+
 {% endblock content %}

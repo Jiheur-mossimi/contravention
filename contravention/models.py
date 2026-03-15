@@ -19,7 +19,7 @@ class Assujettis(models.Model):
 
 
 class Contact(models.Model):
-    id = models.CharField(max_length=10, primary_key=True, verbose_name="ID")
+    numero = models.CharField(max_length=10, primary_key=True, verbose_name="ID")
     assujettis = models.ForeignKey(Assujettis, on_delete=models.CASCADE, verbose_name="ID ASSUJETTIS")
     telephone = models.CharField(max_length=20, verbose_name="TELEPHONE")
     email = models.EmailField(max_length=254, verbose_name="EMAIL")

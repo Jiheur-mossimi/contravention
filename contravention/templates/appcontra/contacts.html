@@ -17,28 +17,29 @@
         <table class="table mt-3">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    <th scope="col">Numero</th>
                     <th scope="col">Assujettis</th>
                     <th scope="col" _msttexthash="133978" _msthash="98">telephone</th>
                     <th scope="col" _msttexthash="94367" _msthash="99">email</th>
                     <th scope="col" _msttexthash="113646" _msthash="100">message</th>
+                    <th scope="col" _msttexthash="113646" _msthash="100">Action</th>
                 </tr>
             </thead>
             <tbody>
 
                 {% for c in contacts %}
                     <tr>
-                        <td>{{ c.id }}</td>
+                        <td>{{ c.numero }}</td>
                         <td>{{ c.assujettis }}</td>
                         <td>{{ c.telephone }}</td>
                         <td>{{ c.email }}</td>
                         <td>{{ c.message }}</td>
                         <td>
-                            <a href="{% url 'mcontact' c.id %}">
-                                <i class="fas fa-pen-square"></i>
-                            </a>
-                            <a href="{% url 'scontact' c.id %}">
-                                <i class="fas fa-trash-alt"></i>
+                            <a href="#">
+                                <i class="fas fa-pen-square fa-2x text-primary"></i>
+                            </a>--
+                            <a href="{% url 'scontact' c.numero %}">
+                                <i class="fas fa-trash-alt fa-2x text-danger"></i>
                             </a>
                         </td>
                     </tr>

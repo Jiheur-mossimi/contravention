@@ -37,10 +37,10 @@
                         <td>{{ ass.telephone }}</td>
                         <td>
                             <a href="{% url 'massujettis' ass.numero %}">
-                                <i class="fas fa-pen-square"></i>
-                            </a>
+                                <i class="fas fa-pen-square fa-2x text-primary"></i>
+                            </a>--
                             <a href="{% url 'sassujettis' ass.numero %}">
-                                <i class="fas fa-trash-alt"></i>
+                                <i class="fas fa-trash-alt fa-2x text-danger"></i>
                             </a>
                         </td>
                     </tr>
@@ -49,7 +49,7 @@
             </table>
         </div>
     </div>
-</div>
+
 
                 
 {% endblock content %}
