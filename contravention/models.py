@@ -13,6 +13,7 @@ class Assujettis(models.Model):
     date = models.DateField(verbose_name="DATE", null=True, blank=True)
     adresse = models.CharField(max_length=150, verbose_name="ADRESSE")
     telephone = models.CharField(max_length=15, verbose_name="TELEPHONE")
+    profession=models.CharField(max_length=50,verbose_name="PROFESSION")
     
     def __str__(self):
         return self.noms
@@ -53,3 +54,6 @@ class Paiement(models.Model):
     amende = models.ForeignKey(Amende, on_delete=models.CASCADE, verbose_name="ID AMENDE")
     datep = models.DateTimeField(verbose_name="DATE DE PAIEMENT")
     mode = models.CharField(max_length=20, verbose_name="MODE DE PAIEMENT")
+    def __str__(self):
+        return self.amende
+        

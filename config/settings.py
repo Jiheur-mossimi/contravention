@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-($2$(u077g5z3-@@y^xuf$n8!$fn2g!v-333+$zd02b_l#4n_s
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'users_app.User'
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contravention',
+    'users_app',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +125,6 @@ STATICFILES_DIRS = [BASE_DIR / 'contravention/static']
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'home'
