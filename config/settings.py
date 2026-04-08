@@ -82,9 +82,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'contrevation_db',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'postgre',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 

@@ -1,52 +1,55 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="card">
-    <div class="card-header">
-        <div class="card-title text-dark" _msttexthash="224159" _msthash="96">
-            <h3>Liste des contacts</h3><a href="{% url 'contact' %}">
-            <button class="btn btn-primary btn-round ms-auto d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#addRowModal">
-                <i class="fa fa-plus"></i>
-                <font _mstmutation="1" _msttexthash="290550" _msthash="483">
-                Ajouter une ligne
-                </font>
-            </button></a>
-        </div>   
-    </div>
-    <div class="card-body">
-        <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Assujettis</th>
-                    <th scope="col" _msttexthash="133978" _msthash="98">telephone</th>
-                    <th scope="col" _msttexthash="94367" _msthash="99">email</th>
-                    <th scope="col" _msttexthash="113646" _msthash="100">message</th>
-                    <th scope="col" _msttexthash="113646" _msthash="100">Action</th>
-                </tr>
-            </thead>
-            <tbody>
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title text-dark" _msttexthash="224159" _msthash="96">
+                    <h3>Liste des contacts</h3><a href="{% url 'contact' %}">
+                    <button class="btn btn-primary btn-round ms-auto d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#addRowModal">
+                        <i class="fa fa-plus"></i>
+                        <font _mstmutation="1" _msttexthash="290550" _msthash="483">
+                        Ajouter une ligne
+                        </font>
+                    </button></a>
+                </div>   
+            </div>
+            <div class="card-body">
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Numero</th>
+                            <th scope="col">Assujettis</th>
+                            <th scope="col" _msttexthash="133978" _msthash="98">telephone</th>
+                            <th scope="col" _msttexthash="94367" _msthash="99">email</th>
+                            <th scope="col" _msttexthash="113646" _msthash="100">message</th>
+                            <th scope="col" _msttexthash="113646" _msthash="100">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                {% for c in contacts %}
-                    <tr>
-                        <td>{{ c.numero }}</td>
-                        <td>{{ c.assujettis }}</td>
-                        <td>{{ c.telephone }}</td>
-                        <td>{{ c.email }}</td>
-                        <td>{{ c.message }}</td>
-                        <td>
-                            <a href="#">
-                                <i class="fas fa-pen-square fa-2x text-primary"></i>
-                            </a>--
-                            <a href="{% url 'scontact' c.numero %}">
-                                <i class="fas fa-trash-alt fa-2x text-danger"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                        {% for c in contacts %}
+                            <tr>
+                                <td>{{ c.numero }}</td>
+                                <td>{{ c.assujettis }}</td>
+                                <td>{{ c.telephone }}</td>
+                                <td>{{ c.email }}</td>
+                                <td>{{ c.message }}</td>
+                                <td>
+                                    <a href="#">
+                                        <i class="fas fa-pen-square fa-2x text-primary"></i>
+                                    </a>--
+                                    <a href="{% url 'scontact' c.numero %}">
+                                        <i class="fas fa-trash-alt fa-2x text-danger"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
 {% endblock content %}
